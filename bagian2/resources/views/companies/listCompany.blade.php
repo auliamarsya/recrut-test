@@ -40,7 +40,7 @@
                             <th scope="row">{{$key+1}}</th>
                             <td class="align-middle row">
                                 <div class="col-2">
-                                    <img src="{{ url('company/'.$company->logo) }}" class="img-row" alt="{{$company->name}}" style="width:30px;height:30px;">
+                                    <img src="{{ url('storage/company/'.$company->logo) }}" class="img-row" alt="{{$company->name}}" style="width:30px;height:30px;">
                                 </div>
                                 <div class="col-10">{{$company->name}}</div>
                             </td>
