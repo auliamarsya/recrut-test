@@ -44,4 +44,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-employee/{id}', 'EmployeesController@edit');
     Route::post('/update-employee', 'EmployeesController@update')->name('update.employee');
     Route::get('/delete-employee/{id}','EmployeesController@destroy');
+    Route::post('/import-employee', 'EmployeesController@importExcel')->name('import.employee');
 });

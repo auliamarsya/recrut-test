@@ -125,8 +125,8 @@ class EmployeesController extends Controller
         return response()->json($response);
      }
 
-     public function importExcel(){
-        Excel::import(new EmployeesImport,request()->file('file'));
+     public function importExcel(Request $request){
+        Excel::import(new EmployeesImport, $request->file('file'));
            
         return back();
      }

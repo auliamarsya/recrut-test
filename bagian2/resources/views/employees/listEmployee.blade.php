@@ -20,6 +20,7 @@
         </div>
         <div class="col-sm-12 text-right">
             <a type="button" href="{{route('create.employee')}}" class="btn btn-primary">Create Employee</a>
+            <a type="button" data-toggle="modal" data-target="#importModal" class="btn btn-success">Import Employee</a>
         </div>
         <div class="col-sm-12 pt-3">
             <div class="table-responsive">
@@ -60,6 +61,31 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importModalLabel">Import Employees</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('import.employee') }}" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    @csrf
+                    <input type="file" name="file" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-warning float-left" href="{{url('storage/file/template.xlsx')}}" download="template">Download Template</a>
+                    <a type="button" class="btn btn-warning float-left" href="{{url('storage/file/example.xlsx')}}" download="example">Example</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
