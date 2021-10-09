@@ -11,6 +11,16 @@ class Companies{
         return "construct function was initialized.";
     }
 
+    function getCompany($id){
+        try{
+            $company = AppCompanies::where('id', $id)->first();
+
+            return $company;
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
     function create($name, $email, $logo, $website)
     {
         try{
@@ -54,16 +64,6 @@ class Companies{
             AppCompanies::where('id', $id)->delete();
 
             return 'success';
-        } catch(Exception $e){
-            return $e->getMessage();
-        }
-    }
-
-    function getCompany($id){
-        try{
-            $company = AppCompanies::where('id', $id)->first();
-
-            return $company;
         } catch(Exception $e){
             return $e->getMessage();
         }

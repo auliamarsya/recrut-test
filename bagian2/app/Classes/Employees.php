@@ -32,6 +32,16 @@ class Employees{
         }
     }
 
+    function getEmployee($id){
+        try{
+            $employee = AppEmployees::where('id', $id)->first();
+
+            return $employee;
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
     function create($name, $company_id, $email)
     {
         try{

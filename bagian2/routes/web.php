@@ -40,4 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/employee', 'EmployeesController@index')->name('employee');
     Route::get('/add-employee', 'EmployeesController@create')->name('create.employee');
     Route::post('/store-employee', 'EmployeesController@store')->name('store.employee');
+    Route::get('/edit-employee/{id}', 'EmployeesController@edit');
+    Route::post('/update-employee', 'EmployeesController@update')->name('update.employee');
+    Route::get('/delete-employee/{id}','EmployeesController@destroy');
 });

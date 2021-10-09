@@ -64,9 +64,12 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $employee_obj = new AppEmployees;
+        $employee = $employee_obj->getEmployee($request->id);
+        
+        return view('employees/editEmployee', compact('employee'));
     }
 
     /**
@@ -76,9 +79,13 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEmployeeRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $employee = new AppEmployees;
+        $update = $employee->update($request->id, $request->employee_name,  $request->company, $request->email);
+        
+        return redirect()->route('employee')->with('success', 'Save Data Successful.');
     }
 
     /**
@@ -87,9 +94,12 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $employee = new AppEmployees;
+        $destroy = $employee->delete($request->id);
+
+        return redirect()->route('employee')->with('success', 'Delete Data Successful.');
     }
 
     public function getCompanies(Request $request){
