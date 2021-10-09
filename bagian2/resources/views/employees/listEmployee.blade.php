@@ -63,4 +63,13 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function() {
+        setTimeout(function() {
+            $("div.alert").remove();
+        }, 3000);
+    })
+</script>
+
 @endsection
