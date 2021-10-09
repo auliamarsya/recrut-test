@@ -7,6 +7,8 @@ use App\Classes\Employees as AppEmployees;
 use App\Companies;
 use App\Employees;
 use App\Http\Requests\StoreEmployeeRequest;
+use App\Imports\EmployeesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeesController extends Controller
 {
@@ -121,5 +123,11 @@ class EmployeesController extends Controller
         }
   
         return response()->json($response);
+     }
+
+     public function importExcel(){
+        Excel::import(new EmployeesImport,request()->file('file'));
+           
+        return back();
      }
 }
