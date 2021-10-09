@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use App\Companies as AppCompanies;
+use App\Employees;
 use Exception;
 
 class Companies{
@@ -16,6 +17,16 @@ class Companies{
             $company = AppCompanies::where('id', $id)->first();
 
             return $company;
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    function getEmployees($id){
+        try{
+            $employees = Employees::where('company_id', $id)->get();
+
+            return $employees;
         } catch(Exception $e){
             return $e->getMessage();
         }

@@ -54,6 +54,7 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuCompany">
                                         <a class="dropdown-item" href="{{url('/edit-company/'.$company->id)}}"><span class="iconify" data-icon="bi:pencil-square" data-inline="false"></span> Edit</a>
                                         <a class="dropdown-item" href="{{url('/delete-company/'.$company->id)}}" onclick="return confirm('Are you sure want to delete this data?')"><span class="iconify" data-icon="bi:trash" data-inline="false"></span> Delete</a>
+                                        <a class="dropdown-item" href="{{url('/export-employee/'.$company->id)}}"><span class="iconify" data-icon="bx:bxs-file-pdf" data-inline="false"></span> Export Employees</a>
                                     </div>
                                 </div>
                             </td>

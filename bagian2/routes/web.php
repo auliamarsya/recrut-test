@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/update-company', 'CompaniesController@update')->name('update.company');
     Route::post('/get-company','EmployeesController@getCompanies')->name('company.getCompany');
     Route::get('/delete-company/{id}','CompaniesController@destroy');
+    Route::get('/export-employee/{id}','CompaniesController@exportPDF');
 
     //employee
     Route::get('/employee', 'EmployeesController@index')->name('employee');

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Classes\Companies as AppCompanies;
 use App\Companies;
 use App\Http\Requests\StoreCompanyRequest;
+// use PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use Auth;
 
 class CompaniesController extends Controller
@@ -99,5 +101,14 @@ class CompaniesController extends Controller
         $destroy = $company->delete($request->id);
 
         return redirect()->route('list.company')->with('success', 'Delete Data Successful.');
+    }
+
+    public function exportPDF(Request $request){
+        $company_obj = new AppCompanies;
+        $employees = $company_obj->getEmployees($request->id);
+        $company = $company_obj->getCompany($request->id);
+
+        $pdf = PDF::loadView('companies.employeesPDF', compact('employees', 'company'));
+        return $pdf->download(time().'_employees.pdf');
     }
 }
