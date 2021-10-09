@@ -46,8 +46,16 @@
                             </td>
                             <td>{{$company->email}}</td>
                             <td>{{$company->website}}</td>
-                            <td>
-                                <a href="{{url('/edit-company/'.$company->id)}}">Edit</a>
+                            <td class="align-middle">
+                                <div class="dropdown">
+                                    <a class="text-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-inline="false"></span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuProduct">
+                                        <a class="dropdown-item" href="{{url('/edit-company/'.$company->id)}}"><span class="iconify" data-icon="bi:pencil-square" data-inline="false"></span> Edit</a>
+                                        <a class="dropdown-item" href="{{url('/delete-company/'.$company->id)}}" onclick="return confirm('Are you sure want to delete this data?')"><span class="iconify" data-icon="bi:trash" data-inline="false"></span> Delete</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

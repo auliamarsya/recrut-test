@@ -93,8 +93,11 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $company = new AppCompanies;
+        $destroy = $company->delete($request->id);
+
+        return redirect()->route('list.company')->with('success', 'Delete Data Successful.');
     }
 }

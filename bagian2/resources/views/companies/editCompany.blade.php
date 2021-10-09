@@ -4,12 +4,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-12">
+            <a class="text-black" type="button" style="text-decoration: none; font-size: 18px;" onclick="goBack()">
+                <span id="iconNav">
+                    <span class="iconify" data-icon="ic:outline-keyboard-arrow-left" data-inline="false" data-width="25px" data-height="25px"></span>
+                </span>
+                <span class="ml-2" style="vertical-align:middle">Back</span>
+            </a>
+        </div>
+        <div class="col-sm-12">
             <h3 class="text-center">Edit Company</h3>
         </div>
         <div class="col-sm-12 pt-3">
             <div class="card shadow bg-white">
                 <div class="card-body p-4">
-                    <form action="{{ route('update.company') }}" method="post" enctype='multipart/form-data' id="detailProductForm">
+                    <form action="{{ route('update.company') }}" method="post" enctype='multipart/form-data'>
                         @csrf
                         <input type="hidden" value="{{$company['id']}}" name="id">
                         <div class="form-group row">

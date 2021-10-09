@@ -4,6 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-12">
+            <a class="text-black" type="button" style="text-decoration: none; font-size: 18px;" onclick="goBack()">
+                <span id="iconNav">
+                    <span class="iconify" data-icon="ic:outline-keyboard-arrow-left" data-inline="false" data-width="25px" data-height="25px"></span>
+                </span>
+                <span class="ml-2" style="vertical-align:middle">Back</span>
+            </a>
+        </div>
+        <div class="col-sm-12">
             <h3 class="text-center">Add Company</h3>
         </div>
         <div class="col-sm-12 pt-3">
